@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.sp
 
 
 @Composable
-fun Greeting(
+fun ScalableText(
     modifier: Modifier = Modifier,
     text: String,
     style: TextStyle = TextStyle(fontSize = 14.sp),

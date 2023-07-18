@@ -1,11 +1,11 @@
 plugins {
     id("com.android.library") version "8.0.1" apply true
     id("org.jetbrains.kotlin.android") version "1.8.21" apply true
-    id("maven-publish")
+    `maven-publish`
 }
 
 android {
-    namespace = "com.artembotnev.text"
+    namespace = "com.artembotnev.compose.text.utils"
     compileSdk = 33
 
     defaultConfig {
@@ -19,12 +19,12 @@ android {
             setProguardFiles(listOf(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"))
         }
     }
-    java {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "11"
     }
     buildFeatures {
         compose = true
@@ -32,14 +32,15 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = "1.4.7"
     }
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+        }
+    }
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.10.1")
-    implementation("com.google.android.material:material:1.9.0")
     implementation(platform("androidx.compose:compose-bom:2022.10.00"))
-    implementation("androidx.compose.ui:ui")
-    implementation("androidx.compose.ui:ui-graphics")
     implementation("androidx.compose.material3:material3")
 }
 
