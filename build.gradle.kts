@@ -1,12 +1,12 @@
 plugins {
-    id("com.android.library") version "8.0.1" apply true
-    id("org.jetbrains.kotlin.android") version "1.8.21" apply true
+    id("com.android.library") version "8.5.1" apply true
+    id("org.jetbrains.kotlin.android") version "1.9.24" apply true
     `maven-publish`
 }
 
 android {
     namespace = "com.artembotnev.compose.text.utils"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         minSdk = 24
@@ -30,7 +30,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.4.7"
+        kotlinCompilerExtensionVersion = "1.5.14"
     }
     publishing {
         singleVariant("release") {
